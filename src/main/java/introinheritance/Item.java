@@ -1,4 +1,4 @@
-package introinheritance.basket;
+package introinheritance;
 
 public class Item {
 
