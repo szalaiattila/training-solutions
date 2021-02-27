@@ -37,7 +37,7 @@ public class CollectionManagerTest {
         CollectionManager cm = new CollectionManager(bookList);
         // When
         assertThrows(UnsupportedOperationException.class, () -> {
-            cm.createUnmodifiableLibrary().add(new Book(5555, "Douglas Adams", "Hitchhikers Guide"));
+            cm.createUnmodifiableLibrary().add(new Book(001, "J.R.R. Tolkien", "Lord of The Rings"));
         });
     }
 
@@ -48,7 +48,7 @@ public class CollectionManagerTest {
         // When
         List<Book> bookList = cm.reverseLibrary();
         //Then
-        assertEquals(1172, bookList.get(0).getId());
+        assertEquals(001, bookList.get(0).getId());
         assertEquals(1001, bookList.get(bookList.size() - 1).getId());
     }
 
@@ -69,21 +69,21 @@ public class CollectionManagerTest {
         // When
         Book book = cm.getLastBook();
         //Then
-        assertEquals(1172, book.getId());
-        assertEquals("Az elfeledett mackó", book.getTitle());
-        assertEquals("Anna Mangan", book.getAuthor());
-        assertEquals("1172 Anna Mangan Az elfeledett mackó", book.toString());
+        assertEquals("001, book.getId());
+        assertEquals("Lord of The Rings", book.getTitle());
+        assertEquals("J.R.R. Tolkien", book.getAuthor());
+        assertEquals("001 J.R.R. Tolkien The Lord of The Rings", book.toString());
 
     }
 
     @Test
     public void equalsAndHashCodeTest() {
-        Book book1 = new Book(1172, "Anna Morgan", "Az elfeledett mackó");
-        Book book2 = new Book(1172, "A. Morgan", "");
+        Book book1 = new Book(001, "J.R.R. Tolkien", "The Lord of The RIngs");
+        Book book2 = new Book(001, "J. Tolkien", "");
 
 
         assertTrue(book1.equals(book2));
-        assertEquals(1172, book1.hashCode());
+        assertEquals(001, book1.hashCode());
 
     }
 }
